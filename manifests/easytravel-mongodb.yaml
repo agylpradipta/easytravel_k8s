@@ -28,7 +28,7 @@ spec:
         app: easytravel
     spec:
       containers:
-      - image: dynatrace/easytravel-mongodb:2.0.0.3218
+      - image: dynatrace/easytravel-mongodb
         name: easytravel-mongodb
         ports:
         - containerPort: 27017

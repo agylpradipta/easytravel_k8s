@@ -28,7 +28,7 @@ spec:
         app: easytravel
     spec:
       containers:
-      - image: dynatrace/easytravel-nginx:2.0.0.3218
+      - image: dynatrace/easytravel-nginx
         name: easytravel-www
         envFrom:
         - configMapRef:
@@ -42,6 +42,14 @@ spec:
           requests:
             cpu: 100m
             memory: 128Mi
+        - containerPort: 9079
+        resources:
+          limits:
+            cpu: 200m
+            memory: 256Mi
+          requests:
+            cpu: 100m
+            memory: 128Mi    
         # readinessProbe:
         #   httpGet:
         #     path: /
@@ -67,6 +75,8 @@ metadata:
 spec:
   ports:
   - port: 80
+    targetPort: 80
+  - port: 9079
     targetPort: 80
   selector:
     app: easytravel
